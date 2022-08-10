@@ -6,15 +6,17 @@ import logoUrl from './logo.svg'
 import type { PageContext } from './types'
 import type { PageContextBuiltIn } from 'vite-plugin-ssr'
 
+
 export { render }
 // See https://vite-plugin-ssr.com/data-fetching
 export const passToClient = ['pageProps', 'urlPathname']
+
 
 async function render(pageContext: PageContextBuiltIn & PageContext) {
   const { Page, pageProps } = pageContext
   const pageHtml = ReactDOMServer.renderToString(
     <PageShell pageContext={pageContext}>
-      <Page {...pageProps} />
+        <Page {...pageProps} />
     </PageShell>,
   )
 

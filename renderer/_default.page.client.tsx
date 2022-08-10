@@ -3,15 +3,21 @@ import { hydrateRoot } from 'react-dom/client'
 import { PageShell } from './PageShell'
 import type { PageContext } from './types'
 import type { PageContextBuiltInClient } from 'vite-plugin-ssr/client'
+import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react'
+import { ThirdWebContextProvider } from './useThirdWebContext'
+const appChainId = ChainId.Mumbai
 
 export { render }
+
 
 async function render(pageContext: PageContextBuiltInClient & PageContext) {
   const { Page, pageProps } = pageContext
   hydrateRoot(
     document.getElementById('page-view')!,
     <PageShell pageContext={pageContext}>
-      <Page {...pageProps} />
+      <ThirdwebProvider desiredChainId={appChainId} >
+        <Page {...pageProps} />
+        </ThirdwebProvider>
     </PageShell>,
   )
 }

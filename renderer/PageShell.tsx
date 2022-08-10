@@ -5,6 +5,7 @@ import type { PageContext } from './types'
 import './PageShell.css'
 import { Link } from './Link'
 
+
 export { PageShell }
 
 function PageShell({ children, pageContext }: { children: React.ReactNode; pageContext: PageContext }) {
@@ -21,9 +22,11 @@ function PageShell({ children, pageContext }: { children: React.ReactNode; pageC
               About
             </Link>
           </Sidebar>
-          <Content>{children}</Content>
+          <Content>
+              {children}
+          </Content>
         </Layout>
-      </PageContextProvider>
+        </PageContextProvider>
     </React.StrictMode>
   )
 }

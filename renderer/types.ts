@@ -1,3 +1,5 @@
+import { ThirdwebSDKProviderProps } from "@thirdweb-dev/react"
+
 export type PageProps = {}
 // The `pageContext` that are available in both on the server-side and browser-side
 export type PageContext = {
@@ -10,4 +12,8 @@ export type PageContext = {
       description?: string;
     }
   }
+}
+
+export type ThirdWebContext = {
+  thirdWeb: ThirdwebSDKProviderProps
 }
